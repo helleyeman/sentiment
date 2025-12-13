@@ -9,7 +9,21 @@ vectorizer = joblib.load("tfidf.pkl")
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods = ["GET"])
+def root():
+    return jsonify({
+        "status": "ok"
+    })
+
+@app.route("/hello", methods=["GET"])
+def hello():
+    return jsonify({
+        "status": "ok",
+        "message": "Backend is working 🚀"
+    })
+
 @app.route("/predict", methods=["POST"])
+
 def predict():
     data = request.get_json()
     text = str(data.get("text", ""))
