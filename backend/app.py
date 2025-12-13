@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
+import os
 
 model = joblib.load("sentiment_model.pkl")
 vectorizer = joblib.load("tfidf.pkl")
